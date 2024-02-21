@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>login-script.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,36 +29,52 @@
 
 <div id="main">
     
+    <h1 class="page-title">login-script.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Catatan:
+ * Gunakan fungsi goToHome() untuk menampilkan halaman home
+ * Gunakan fungsi goToLogin() untuk menampilkan halaman login
+ * Gunakan fungsi showPopUp() untuk menampilkan pop up error
+ */
 
+/** variable elemen view */
+const loginFormElement = document.querySelector('#loginForm');
+const inputEmailElement = document.querySelector('#inputEmail');
+const inputPasswordElement = document.querySelector('#inputPassword');
 
+/** variabel menyimpan informasi email &amp; password */
+const expectedEmail = 'admin@dicoding.com';
+const expectedPassword = 'superpassword';
 
+/**button click action */
+loginFormElement.addEventListener('submit', function(event) {
+    event.preventDefault();
 
+    /**get value dari input */
+    const email = inputEmailElement.value;
+    const password = inputPasswordElement.value;
 
-
-
-
-
-    
-
-
-    <section class="readme">
-        <article><h1>Aplikasi-Login</h1>
-<p>Sebuah aplikasi dengan fitur login.</p>
-<p>Alur Fitur Login:</p>
-<ol>
-<li>Memasukkan email dan password</li>
-<li>Memvalidasi masukan.</li>
-<li>Menampilkan halaman hone.</li>
-</ol></article>
+    /**membandingkan nilai */
+    if (email == expectedEmail &amp;&amp; password == expectedPassword) {
+      //kondisi berhasil
+      goToHome();
+    } else {
+      //kondisi gagal
+      showPopUp();
+    }
+});
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
